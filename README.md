@@ -77,7 +77,7 @@ This functions creates an new object, 'shape' controls drawing and input detecti
 The following shapes are supported: 
   * *rectangle (rect)*
   * *square (square)*
-  * *triangl (triangle)*
+  * *triangle (triangle)*
   * *circle (circle)*
   * *ellipse (ellipse)*
   
