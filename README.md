@@ -79,7 +79,7 @@ The reference contains the following functions & methods:
 * .inp()
 * .place()
 
-## createApp() 
+### createApp() 
 ```
 createApp() {
   //define your uxObjects here
