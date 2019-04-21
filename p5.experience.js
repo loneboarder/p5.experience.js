@@ -1,7 +1,7 @@
 /*
 
 Written by Felix Meichelboeck
-Contact: felix.meichelboeck@icloud.com
+Contact: felix.meichelboeck with on icloud - Mail.
 
 
 
