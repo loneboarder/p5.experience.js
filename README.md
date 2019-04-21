@@ -69,14 +69,24 @@ Well done, you now created your first simple Web-Application with p5.experience.
 ## Reference
 
 The reference contains the following functions & methods: 
-* [uxElement()](# uxElement())
-* [uxFillColor()](###uxFill())
-* [uxnoFill()](###uxnoFill())
-* [uxStroke()](###uxStroke())
-* [uxStrokeWeight()](###uxStrokeWeight())
-* [uxnoStroke()](###uxnoStroke())
-* [.inp()](###.inp())
-* [.place()](###.place())
+* createApp()
+* uxElement()
+* uxFillColor()
+* uxnoFill()
+* uxStroke()
+* uxStrokeWeight()
+* uxnoStroke()]
+* .inp()
+* .place()
+
+## createApp() 
+```
+createApp() {
+  //define your uxObjects here
+}
+```
+
+This function gets called once, just before the draw() function loops for the first time. You can design your web-app in the body of this function. Please do not call this function somewhere else.
 
 ### uxElement()
 ```
