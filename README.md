@@ -69,17 +69,17 @@ Well done, you now created your first simple Web-Application with p5.experience.
 ## Reference
 
 ```
-uxElement(shape, x, y, w, h)
+uxElement('shape', x, y, w, h)
 ```
 
 This functions creates an new object, 'shape' controls drawing and input detection. 
 
 The following shapes are supported: 
-  * *rectangle*
-  * *square*
-  * *triangle*
-  * *circle*
-  * *ellipse*
+  * *rectangle (rect)*
+  * *square (square)*
+  * *triangl (triangle)*
+  * *circle (circle)*
+  * *ellipse (ellipse)*
   
 This function returns the object. The following properties can be changed anywhere after initalising the uxElement: 
   * *this.shape*
@@ -125,7 +125,7 @@ This function works like the p5.js strokeWeight-function. For more information s
 This function can only be called in createApp() and is for uxElements only. 
 
 ```
-.inp(inputType, callback)
+.inp('inputType', callback)
 ```
 
 This method gets added to an uxElement and sets the event listener for this exact element. The callback-function gets called, when the user interacts with the element. 
@@ -134,3 +134,11 @@ There are three types of inputs:
 * *click* User needs to click on the shape (callback gets called after releasing the left mouse-button)
 * *press* User needs to press on the shape (callback gets called when the user clicks on shape)
 * *hover* User needs to hover over shape to call callback-function
+
+This function can only be called in createApp() and is for uxElements only. 
+
+```
+.place()
+```
+
+This method disables the automatic drawing of the chosen element and draws it where .place() gets called. You can call this method anywhere in draw to display the uxElement exactly where you want it.
