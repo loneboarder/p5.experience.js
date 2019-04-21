@@ -93,7 +93,7 @@ This function gets called once, just before the draw() function loops for the fi
 uxElement('shape', x, y, w, h)
 ```
 
-This functions creates an new object, 'shape' controls drawing and input detection. 
+This function creates a new object, 'shape' controls drawing and input detection. 
 
 The following shapes are supported: 
   * *rectangle (rect)*
