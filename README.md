@@ -69,14 +69,14 @@ Well done, you now created your first simple Web-Application with p5.experience.
 ## Reference
 
 The reference contains the following functions & methods: 
-* [uxElement()](uxElement())
-* [uxFillColor()](uxFill())
-* [uxnoFill()](uxnoFill())
-* [uxStroke()](uxStroke())
-* [uxStrokeWeight()](uxStrokeWeight())
-* [uxnoStroke()](uxnoStroke())
-* [.inp()](.inp())
-* [.place()](.place())
+* [uxElement()](###uxElement())
+* [uxFillColor()](###uxFill())
+* [uxnoFill()](###uxnoFill())
+* [uxStroke()](###uxStroke())
+* [uxStrokeWeight()](###uxStrokeWeight())
+* [uxnoStroke()](###uxnoStroke())
+* [.inp()](###.inp())
+* [.place()](###.place())
 
 ### uxElement()
 ```
