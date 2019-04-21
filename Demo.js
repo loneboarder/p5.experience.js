@@ -20,9 +20,6 @@ function createApp() {
 
 function draw() {
   background(200);
-  a.place();
-  // fill(0,100,0);
-  // rect(60,75,200,200);
 
 }
 
