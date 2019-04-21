@@ -82,10 +82,10 @@ The following shapes are supported:
   * *ellipse (ellipse)*
   
 This function returns the object. The following properties can be changed anywhere after initalising the uxElement: 
-  * *this.shape*
-  * *this.uxFill*
-  * *this.uxStrokeColor*
-  * *this.uxStrokeWeight*
+  * *.shape*
+  * *.uxFill*
+  * *.uxStrokeColor*
+  * *.uxStrokeWeight*
  
 Please not that x, y, w, h may change or extend for different shapes. The shape properties are the same as in the p5.js shape reference.
 
