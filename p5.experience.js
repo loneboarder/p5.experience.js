@@ -1,7 +1,7 @@
 /*
 
 Written by Felix Meichelboeck
-Contact: felix.meichelboeck with on icloud - Mail.
+Contact: felix.meichelboeck@icloud.com
 
 
 
@@ -132,8 +132,6 @@ The input function get´s set for every uxElement seperatly. There are three mod
 
       this.uxNoStrokeState = uxNoStrokeState;
       this.uxNoFillState = uxNoFillState;
-
-      this.kindOfInput = 'none';
 
       switch (this.shape) {
 
@@ -338,7 +336,6 @@ The input function get´s set for every uxElement seperatly. There are three mod
       if (this.kindOfInput != 'none') {
         inputUxObjects.push([this.inputObject, this.UxID]);
       }
-
 
     }
 
