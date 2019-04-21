@@ -4,7 +4,6 @@ let c;
 
 function setup() {
   createCanvas(400, 400);
-  // console.log(p5.prototype.hasOwnProperty('UXApp'));
 }
 
 function createApp() {
