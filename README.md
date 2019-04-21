@@ -68,7 +68,9 @@ Well done, you now created your first simple Web-Application with p5.experience.
 
 ## Reference
 
-* **uxElement(shape, x, y, w, h)**
+```
+uxElement(shape, x, y, w, h)
+```
 
 This functions creates an new object, 'shape' controls drawing and input detection. 
 
@@ -87,27 +89,37 @@ This function returns the object. The following properties can be changed anywhe
  
 Please not that x, y, w, h may change or extend for different shapes. The shape properties are the same as in the p5.js shape reference.
 
-* **uxFill(color)**
+```
+uxFill(color)
+```
 
 This function works like the p5.js fill-function. For more information see [p5 fill reference](https://p5js.org/reference/#/p5/fill)
 This function can only be called in createApp() and is for uxElements only. 
 
-* **uxNoFill()**
+```
+uxNoFill()
+```
 
 This function works like the p5.js noFill-function. Just call it and every uxElement that get´s created after will have no fill.
 This function can only be called in createApp() and is for uxElements only. 
 
-* **uxStroke(color)**
+```
+uxStroke(color)
+```
 
 This function works like the p5.js stroke-function. For more information see [p5 stroke reference](https://p5js.org/reference/#/p5/stroke)
 This function can only be called in createApp() and is for uxElements only. 
 
-* **uxNoStroke()**
+```
+uxNoStroke()
+```
 
 This function works like the p5.js noStroke-function. Just call it and every uxElement that get´s created after will have no stroke.
 This function can only be called in createApp() and is for uxElements only. 
 
-* **uxStrokeWeight(weight)**
+```
+uxStrokeWeight(weight)
+```
 
 This function works like the p5.js strokeWeight-function. For more information see [p5 strokeWeight reference](https://p5js.org/reference/#/p5/strokeweight)
 This function can only be called in createApp() and is for uxElements only. 
