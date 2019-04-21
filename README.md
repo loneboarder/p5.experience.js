@@ -123,3 +123,14 @@ uxStrokeWeight(weight)
 
 This function works like the p5.js strokeWeight-function. For more information see [p5 strokeWeight reference](https://p5js.org/reference/#/p5/strokeweight)
 This function can only be called in createApp() and is for uxElements only. 
+
+```
+.inp(inputType, callback)
+```
+
+This method gets added to an uxElement and sets the event listener for this exact element. The callback-function gets called, when the user interacts with the element. 
+
+There are three types of inputs: 
+* *click* User needs to click on the shape (callback gets called after releasing the left mouse-button)
+* *press* User needs to press on the shape (callback gets called when the user clicks on shape)
+* *hover* User needs to hover over shape to call callback-function
