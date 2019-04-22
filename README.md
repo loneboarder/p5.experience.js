@@ -90,7 +90,7 @@ This function gets called once, just before the draw() function loops for the fi
 
 ### uxElement()
 ```
-uxElement('shape', x, y, w, h)
+uxElement('shape', a, b, c, d)
 ```
 
 This function creates a new object, 'shape' controls drawing and input detection. 
@@ -108,7 +108,7 @@ This function returns the object. The following properties can be changed anywhe
   * *.uxStrokeColor*
   * *.uxStrokeWeight*
  
-Please not that x, y, w, h may change or extend for different shapes. The shape properties are the same as in the p5.js shape reference.
+Please not that a, b, c, d may change or extend for different shapes. The shape properties are the same as in the p5.js reference for the specific shape.
 
 ### uxFill()
 ```
