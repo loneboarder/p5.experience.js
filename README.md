@@ -43,7 +43,7 @@ function trigger() {
 ```
 You now have created a rectangle, that calls the trigger() function when it gets clicked.
 
-Let´s take some control over our app! You can assign your uxElements to variables like that:
+Let´s take some control over our app! You can assign your uxShapes to variables like that:
 
 ```javascript
 let one;
