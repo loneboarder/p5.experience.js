@@ -176,7 +176,7 @@ There are three types of inputs:
 * *press* User needs to press on the shape (callback gets called when the user clicks on shape)
 * *hover* User needs to hover over shape to call callback-function
 
-This function can only be called in setup() and is for uxShapes only.  
+This function is only for uxShapes.  
 
 ### .uxRender()
 ```javascript
