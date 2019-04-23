@@ -166,7 +166,7 @@ This function can only be called in setup() and is for uxShapes only.
 
 ### .uxEvent()
 ```javascript
-.inp('inputType', callback)
+.uxEvent('inputType', callback)
 ```
 
 This method gets added to an uxShape and sets the event listener for this exact shape. The callback-function gets called, when the user interacts with the element. 
