@@ -14,7 +14,7 @@ The createApp() function gets called once just before draw() loops the first tim
 To build your first web-application with p5.experience.js you need to add the createApp() function to your sketch:
 
 ```
-function setup() {
+// function setup() {
   createCanvas(400, 400);
 }
 
