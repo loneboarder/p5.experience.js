@@ -70,7 +70,7 @@ The reference contains the following functions & methods:
 *Shapes*
 * uxRect()
 * uxSquare()
-* uxTriangle()for
+* uxTriangle()
 * uxCircle()
 * uxEllipse()
 
