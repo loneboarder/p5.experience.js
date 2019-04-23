@@ -48,7 +48,7 @@ Let´s take some control over our app! You can assign your uxElements to variabl
 ```javascript
 let one;
 
-function createApp() {
+function setup() {
   one = uxRect(100, 100, 50, 50)
   one.uxEvent('click', trigger());
 }
