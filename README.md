@@ -4,7 +4,7 @@ Extensive library for p5.js that adds additional event-listening functionality f
 ## The core concept of p5.experience.js
 p5.experience.js introduces with the uxElement a new concept to p5: 
 
-It is now possible to create event-listeners to p5-sketches. 
+It is now possible to add event-listeners to p5-shapes. 
 
 At the moment there are **5** possible shapes:
 * Rectangle
