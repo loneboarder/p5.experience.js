@@ -1,14 +1,20 @@
 # p5.experience.js
-Extensive library for p5.js that adds additional functionality for creating canvas-based web applications. 
+Extensive library for p5.js that adds additional event-listening functionality for creating canvas-based web applications. 
 
 ## The core concept of p5.experience.js
-p5.experience.js introduces two new main concepts to p5: 
+p5.experience.js introduces with the uxElement a new concept to p5: 
 
-### 1. The uxElement
-The uxElement is an object that consists of shape-drawing and input-handling. 
+It is now possible to create event-listeners to p5-sketches. 
 
-### 2. The createApp() function
-The createApp() function gets called once just before draw() loops the first time. You can build your app here! 
+At the moment there are **5** possible shapes:
+* Rectangle
+* Square
+* Triangle
+* Ellipse
+* Circle
+
+**How do the event listeners work???
+
 
 ## Beginner Tutorial - Getting started
 To build your first web-application with p5.experience.js you need to add the createApp() function to your sketch:
