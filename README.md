@@ -127,7 +127,7 @@ uxCircle(x, y, w, h)
 uxFill(color)
 ```
 
-This function works like the p5.js fill-function. For more information see [p5 fill reference](https://p5js.org/reference/#/p5/fill)
+This function works like the p5.js fill-function. For more information see [p5 fill reference](https://p5js.org/reference/#/p5/fill). 
 This function can only be called in setup() and is for uxShapes only. 
 
 ### uxNoFill()
