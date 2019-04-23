@@ -53,6 +53,7 @@ function setup() {
   one = uxRect(100, 100, 50, 50)
   
   one.uxEvent('click', trigger());
+  
 }
 
 function trigger() {
