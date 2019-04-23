@@ -1,8 +1,9 @@
 /*
 
-Written by Felix Meichelboeck
-Contact: felix.meichelboeck@icloud.com
+MIT License
+Copyright (c) 2019 Felix Meichelböck
 
+Contact: felix.meichelboeck on Apples icloud Mail
 
 
 -- p5.experience.js --
@@ -14,28 +15,28 @@ To use it you need to add p5.js or p5.min.js to your project. (https://p5js.org/
 
 Browser compatibility: You need ES6 to use the p5.experience.js library.
 
-More Infos / Tutorials & ReadMe: github.com/CHANGETHIS
+More Infos / Reference / Tutorials & ReadMe: github.com/loneboarder/p5.experience.js
 
 
 
 --- Structure & Development Info ---
 
 p5.experience.js is based on the class modell, which was introduced with ES6.
-The library adds additional web-application-functions to the standart p5-library.
+The library adds additional event-handling to the standart p5-library.
 
-The heart of the library is the new uxElement-object. It contains two basic concepts:
+The heart of the library is the new uxElement-object (uxShape). It contains two basic concepts:
 1. Shape drawing
 2. Mouse input detection
 
-uxElements don´t get created in the draw() function. They can be created inside the new createApp() function.
+uxElements don´t get created in the draw() function. They can be created inside the setup() function.
 This function gets called once just before the first draw loop. p5.experience.js renders those objects for the user.
 They don´t need to be redrawn every loop. This library contains a render function, that draws all uxElements at the end of every draw loop.
 
 1.---
 
 The user doesn´t need to worry about drawing the shapes. If there is a need to render an uxElement somewhere else,
-p5.experience.js has the place() function.
-This function removes the render-part out of the basic render-function and draws the shape when place() is called.
+p5.experience.js has the uxRender() function.
+This function removes the render-part out of the basic render-function and draws the shape when uxRender() is called.
 
 2.---
 
@@ -65,16 +66,39 @@ The input function get´s set for every uxElement seperatly. There are three mod
 
 
   /*
-  These functions should get called in createApp(),
+  These functions should get called in setup(),
   they set fill and stroke values just like the normal fill() and stroke() functions in p5.
-  They only work with the uxElement object.
+  They only work with the uxElement objects (Shapes).
   */
 
-  //Create new UXelement
-  p5.prototype.uxElement = function(a, b, c, d, e, f, g) {
-    return new UXelement(a, b, c, d, e, f, g)
+  //Shape drawing functions to be called in setup()
+
+  p5.prototype.uxRect = function(a, b, c, d, e) {
+    return new UXelement('rect', a, b, c, d, e)
 
   }
+
+  p5.prototype.uxSquare = function(a, b, c, d) {
+    return new UXelement('square', a, b, c, d)
+
+  }
+
+  p5.prototype.uxTriangle = function(a, b, c, d, e, f) {
+    return new UXelement('triangle', a, b, c, d, e, f)
+
+  }
+
+  p5.prototype.uxCircle = function(a, b, c) {
+    return new UXelement('circle', a, b, c)
+
+  }
+
+  p5.prototype.uxEllipse = function(a, b, c, d) {
+    return new UXelement('ellipse', a, b, c, d)
+
+  }
+
+  //Utility functions to be also called in setup()
 
   //Set fill value for app
   p5.prototype.uxFill = function(a, b, c, d) {
@@ -339,16 +363,18 @@ The input function get´s set for every uxElement seperatly. There are three mod
 
     }
 
-    //This method can be called by the user in createApp() (sets input for the specific uxElement)
+    //This method can be called by the user in setup() (sets input for the specific uxElement)
 
-    inp(kindOfInput, callback) {
+    uxEvent(kindOfInput, callback) {
       this.kindOfInput = kindOfInput; // press, click, hover
       this.callback = callback;
     }
 
+
+
     //This function can be called by the user in draw() (removes uxElement from render-Array and draws it in place)
 
-    place() {
+    uxRender() {
       if (this.kindOfRender === 'intern') {
 
         for (let i in renderUxObjects) {
@@ -519,21 +545,9 @@ The input function get´s set for every uxElement seperatly. There are three mod
     return output;
   }
 
-  //Start initalizing app before drawing
-
-  let initalized = true;
-
-  p5.prototype.initApp = function() {
-    if (initalized) {
-      createApp();
-      initalized = false;
-    }
-  }
-
-  //----------Register methods in p5 library----------------
+  //----------Register method in p5 library----------------
 
   p5.prototype.registerMethod('post', p5.prototype.runApp);
-  p5.prototype.registerMethod('pre', p5.prototype.initApp);
 
 })();
 
