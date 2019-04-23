@@ -13,7 +13,7 @@ The createApp() function gets called once just before draw() loops the first tim
 ## Beginner Tutorial - Getting started
 To build your first web-application with p5.experience.js you need to add the createApp() function to your sketch:
 
-```
+```javascript
 // function setup() {
   createCanvas(400, 400);
 }
@@ -29,7 +29,7 @@ function draw() {
 
 Now you´re ready to add new your first uxElement to your sketch. You can create one as follows:
 
-```
+```javascript
 function createApp() {
   uxElement('rect', 100, 100, 50, 50);
 }
@@ -38,7 +38,7 @@ p5.experience.js now creates an uxElement for you in the background. You don´t 
 
 Let´s add a simple mouse-input to that uxElement!
 
-```
+```javascript
 function createApp() {
   uxElement('rect', 100, 100, 50, 50).inp('click', trigger());
 }
@@ -51,7 +51,7 @@ You now have created a rectangle, that calls the trigger() function when it gets
 
 Let´s take some control over our app! You can assign your uxElements to variables like that:
 
-```
+```javascript
 let one;
 
 function createApp() {
@@ -80,7 +80,7 @@ The reference contains the following functions & methods:
 * .place()
 
 ### createApp() 
-```
+```javascript
 createApp() {
   //define your uxObjects here
 }
@@ -89,7 +89,7 @@ createApp() {
 This function gets called once, just before the draw() function loops for the first time. You can design your web-app in the body of this function. Please do not call this function somewhere else.
 
 ### uxElement()
-```
+```javascript
 uxElement('shape', a, b, c, d)
 ```
 
@@ -111,7 +111,7 @@ This function returns the object. The following properties can be changed anywhe
 Please not that a, b, c, d may change or extend for different shapes. The shape properties are the same as in the p5.js reference for the specific shape.
 
 ### uxFill()
-```
+```javascript
 uxFill(color)
 ```
 
@@ -119,7 +119,7 @@ This function works like the p5.js fill-function. For more information see [p5 f
 This function can only be called in createApp() and is for uxElements only. 
 
 ### uxNoFill()
-```
+```javascript
 uxNoFill()
 ```
 
@@ -127,7 +127,7 @@ This function works like the p5.js noFill-function. Just call it and every uxEle
 This function can only be called in createApp() and is for uxElements only. 
 
 ### uxStroke()
-```
+```javascript
 uxStroke(color)
 ```
 
@@ -135,7 +135,7 @@ This function works like the p5.js stroke-function. For more information see [p5
 This function can only be called in createApp() and is for uxElements only. 
 
 ### uxNoStroke()
-```
+```javascript
 uxNoStroke()
 ```
 
@@ -143,7 +143,7 @@ This function works like the p5.js noStroke-function. Just call it and every uxE
 This function can only be called in createApp() and is for uxElements only. 
 
 ### uxStrokeWeight()
-```
+```javascript
 uxStrokeWeight(weight)
 ```
 
@@ -151,7 +151,7 @@ This function works like the p5.js strokeWeight-function. For more information s
 This function can only be called in createApp() and is for uxElements only. 
 
 ### .inp()
-```
+```javascript
 .inp('inputType', callback)
 ```
 
@@ -165,7 +165,7 @@ There are three types of inputs:
 This function can only be called in createApp() and is for uxElements only. 
 
 ### .place()
-```
+```javascript
 .place()
 ```
 
