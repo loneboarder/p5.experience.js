@@ -180,7 +180,7 @@ This function can only be called in setup() and is for uxShapes only.
 
 ### .uxRender()
 ```javascript
-.place()
+.uxRender()
 ```
 
 This method disables the automatic drawing of the chosen element and draws it where .uxRender() gets called. You can call this method anywhere in draw to display the uxShape exactly where you want it.
