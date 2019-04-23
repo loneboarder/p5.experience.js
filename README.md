@@ -67,7 +67,7 @@ The reference contains the following functions & methods:
 *Shapes*
 * uxRect()
 * uxSquare()
-* uxTriangle()
+* uxTriangle()for
 * uxCircle()
 * uxEllipse()
 
@@ -86,7 +86,7 @@ The reference contains the following functions & methods:
 
 uxShape-Functions return an object. Those can be assigned to variables.
 
-The following properties can be changed (in draw() too) for every uxShape:
+The following properties can be changed every uxShape:
   * *.shape*
   * *.uxFill*
   * *.uxStrokeColor*
