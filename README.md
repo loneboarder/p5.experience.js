@@ -50,14 +50,14 @@ let one;
 
 function setup() {
 
-  one = uxRect(100, 100, 50, 50)
+  one = uxRect(100, 100, 50, 50);
   
   one.uxEvent('click', trigger());
   
 }
 
 function trigger() {
-  console.log('uxRect just got clicked!')
+  console.log('uxRect just got clicked!');
 }
 ```
 
