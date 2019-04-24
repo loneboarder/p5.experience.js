@@ -79,7 +79,7 @@ The reference contains the following functions & methods:
 * uxnoFill()
 * uxStroke()
 * uxStrokeWeight()
-* uxNoStroke()]
+* uxNoStroke()
 
 *Event Handling*
 * .uxEvent()
