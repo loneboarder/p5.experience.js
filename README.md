@@ -34,7 +34,7 @@ Let´s add a simple mouse-input to that uxShape!
 
 ```javascript
 function setup() {
-  uxRect(100, 100, 50, 50).uxEvent('click', trigger());
+  uxRect(100, 100, 50, 50).uxEvent('click', trigger);
 }
 
 function trigger() {
@@ -52,7 +52,7 @@ function setup() {
 
   one = uxRect(100, 100, 50, 50);
   
-  one.uxEvent('click', trigger());
+  one.uxEvent('click', trigger);
   
 }
 
