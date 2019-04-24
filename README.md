@@ -89,7 +89,7 @@ The reference contains the following functions & methods:
 
 uxShape-Functions return an object. Those can be assigned to variables.
 
-The following properties can be changed every uxShape:
+The following properties can be changed:
   * *.shape*
   * *.uxFill*
   * *.uxStrokeColor*
