@@ -19,7 +19,7 @@ To every of those shapes, an event listener can be assigned. There are three typ
 * Mouse clicked ('click')
 * Mouse is hovering ('hover')
 
-## Getting starteda
+## Getting started
 To build your first web-application with p5.experience.js you just need to add the uxShape that you want to your setup function:
 
 ```javascript
