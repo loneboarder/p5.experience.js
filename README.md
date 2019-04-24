@@ -2,7 +2,7 @@
 Extensive library for p5.js that adds additional event-listening functionality for creating canvas-based web applications. 
 
 ## The core concept of p5.experience.js
-p5.experience.js introduces with the uxElement a new concept to p5: 
+p5.experience.js introduces a new concept to p5: 
 
 It is now possible to add event-listeners to p5-shapes. 
 
@@ -19,7 +19,7 @@ To every of those shapes, an event listener can be assigned. There are three typ
 * Mouse clicked ('click')
 * Mouse is hovering ('hover')
 
-## Getting started
+## Getting starteda
 To build your first web-application with p5.experience.js you just need to add the uxShape that you want to your setup function:
 
 ```javascript
