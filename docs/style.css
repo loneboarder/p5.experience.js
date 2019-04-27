@@ -1,0 +1,47 @@
+h1 {
+  font-size: 38px;
+  color: rgb(39, 50, 54);
+  text-align: center;
+  font-family: 'Raleway:500', sans-serif;
+}
+
+h2 {
+  font-size: 26px;
+  color: rgb(39, 50, 54);
+  text-align: center;
+  font-family: 'Raleway', sans-serif;
+}
+
+p {
+  font-size: 18px;
+  color: rgb(39, 50, 54);
+  text-align: center;
+  font-family: 'Raleway', sans-serif;
+}
+
+#list {
+  font-size: 18px;
+  color: rgb(120, 20, 10);
+  text-align: center;
+  font-family: 'Raleway', sans-serif;
+}
+
+button {
+  background-color: #C65D5D;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  -webkit-transition-duration: 0.2s;
+  transition-duration: 0.2s;
+}
+
+button:hover {
+  background-color: #5DC6B2;
+  /* Green */
+  color: white;
+}
