@@ -1,5 +1,7 @@
 /*
 
+v.1.3.
+
 MIT License
 Copyright (c) 2019 Felix Meichelböck
 
@@ -58,9 +60,9 @@ The input function get´s set for every uxElement seperatly. There are three mod
 
   let inputUxObjects = [];
 
-  let uxFillColor = 0;
+  let uxFillColor = '#3498DB';
   let uxNoFillState = false;
-  let uxStrokeColor = 0;
+  let uxStrokeColor = '#154464';
   let uxStrokeWeight = 1;
   let uxNoStrokeState = false;
 
