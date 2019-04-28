@@ -1,6 +1,10 @@
 # p5.experience.js
 Extensive library for p5.js that adds additional event-listening functionality for creating canvas-based web applications.
 
+<p>
+  <img src="https://raw.githubusercontent.com/loneboarder/p5.experience.js/master/docs/p5.experience.js_github_preview.png">
+</p>
+
 ## The core concept of p5.experience.js
 p5.experience.js introduces a new concept to the p5.js library ([download p5.js here](https://p5js.org/download/)): 
 
