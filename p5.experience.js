@@ -1,6 +1,6 @@
 /*
 
-v.1.3.
+v.1.4. (19_05_18)
 
 MIT License
 Copyright (c) 2019 Felix Meichelböck
@@ -18,33 +18,6 @@ To use it you need to add p5.js or p5.min.js to your project. (https://p5js.org/
 Browser compatibility: You need ES6 to use the p5.experience.js library.
 
 More Infos / Reference / Tutorials & ReadMe: github.com/loneboarder/p5.experience.js
-
-
-
---- Structure & Development Info ---
-
-p5.experience.js is based on the class modell, which was introduced with ES6.
-The library adds additional event-handling to the standart p5-library.
-
-The heart of the library is the new uxElement-object (uxShape). It contains two basic concepts:
-1. Shape drawing
-2. Mouse input detection
-
-uxElements don´t get created in the draw() function. They can be created inside the setup() function.
-This function gets called once just before the first draw loop. p5.experience.js renders those objects for the user.
-They don´t need to be redrawn every loop. This library contains a render function, that draws all uxElements at the end of every draw loop.
-
-1.---
-
-The user doesn´t need to worry about drawing the shapes. If there is a need to render an uxElement somewhere else,
-p5.experience.js has the uxRender() function.
-This function removes the render-part out of the basic render-function and draws the shape when uxRender() is called.
-
-2.---
-
-The input function get´s set for every uxElement seperatly. There are three modes, which get triggered differently (hover, press, click).
-
-
 
 --- Improvement needed ---
 
@@ -65,6 +38,11 @@ The input function get´s set for every uxElement seperatly. There are three mod
   let uxStrokeColor = '#154464';
   let uxStrokeWeight = 1;
   let uxNoStrokeState = false;
+
+  let uxRectModeState = 'corner';
+  let uxEllipseMode = 'center';
+
+
 
 
   /*
@@ -134,6 +112,45 @@ The input function get´s set for every uxElement seperatly. There are three mod
 
   }
 
+  //Set rectMode
+  p5.prototype.uxRectMode = function(a) {
+
+    switch (a) {
+      case 'corner':
+        uxRectModeState = 'corner';
+        break;
+
+      case 'center':
+        uxRectModeState = 'center';
+        break;
+
+      default:
+        uxRectModeState = 'corner';
+
+    }
+
+  }
+
+  //Set ellipseMode
+  p5.prototype.uxEllipseMode = function(a) {
+
+    switch (a) {
+      case 'corner':
+        uxEllipseMode = 'corner';
+        break;
+
+      case 'center':
+        uxEllipseMode = 'center';
+        break;
+
+      default:
+        uxEllipseMode = 'corner';
+
+    }
+
+  }
+
+
 
   /* This is the main class for the uxElement. The constructor is very extensive as it sets the input and rendering functions.
   Every property of uxElement can be changed everywhere in draw().
@@ -159,6 +176,13 @@ The input function get´s set for every uxElement seperatly. There are three mod
       this.uxNoStrokeState = uxNoStrokeState;
       this.uxNoFillState = uxNoFillState;
 
+      this.uxRectModeState = uxRectModeState;
+      this.uxEllipseModeState = uxEllipseMode;
+
+      this.shadow = false;
+      this.shadowRender = () => {};
+
+
       switch (this.shape) {
 
         case 'rect':
@@ -169,6 +193,10 @@ The input function get´s set for every uxElement seperatly. There are three mod
           this.h = e;
           this.cor = f;
           this.renderShape = () => {
+
+            if (this.shadow) {
+              this.shadowRender();
+            }
 
             if (this.uxNoStrokeState === false) {
               stroke(this.uxStrokeColor);
@@ -183,9 +211,15 @@ The input function get´s set for every uxElement seperatly. There are three mod
               noFill()
             }
 
-            rect(this.x, this.y, this.w, this.h, this.cor);
+            if (this.uxRectModeState === 'corner') {
+              rectMode(CORNER);
+            } else if (this.uxRectModeState === 'center') {
+              rectMode(CENTER);
+            }
 
+            rect(this.x, this.y, this.w, this.h, this.cor);
           }
+
           this.inputObject = (input) => {
 
             if (checkRectHover(this.x, this.y, this.w, this.h, mouseX, mouseY) && input === this.kindOfInput) {
@@ -204,6 +238,10 @@ The input function get´s set for every uxElement seperatly. There are three mod
           this.cor = e;
           this.renderShape = () => {
 
+            if (this.shadow) {
+              this.shadowRender();
+            }
+
             if (this.uxNoStrokeState === false) {
               stroke(this.uxStrokeColor);
             } else {
@@ -217,9 +255,16 @@ The input function get´s set for every uxElement seperatly. There are three mod
               noFill()
             }
 
+            if (this.uxRectModeState === 'corner') {
+              rectMode(CORNER);
+            } else if (this.uxRectModeState === 'center') {
+              rectMode(CENTER);
+            }
+
             square(this.x, this.y, this.s, this.cor);
 
           }
+
           this.inputObject = (input) => {
 
             if (checkRectHover(this.x, this.y, this.s, this.s, mouseX, mouseY) && input === this.kindOfInput) {
@@ -240,6 +285,10 @@ The input function get´s set for every uxElement seperatly. There are three mod
           this.y3 = g;
           this.renderShape = () => {
 
+            if (this.shadow) {
+              this.shadowRender();
+            }
+
             if (this.uxNoStrokeState === false) {
               stroke(this.uxStrokeColor);
             } else {
@@ -256,6 +305,7 @@ The input function get´s set for every uxElement seperatly. There are three mod
             triangle(this.x1, this.y1, this.x2, this.y2, this.x3, this.y3);
 
           }
+
           this.inputObject = (input) => {
 
             if (checkTriangleHover(this.x1, this.y1, this.x2, this.y2, this.x3, this.y3, mouseX, mouseY) && input === this.kindOfInput) {
@@ -273,6 +323,10 @@ The input function get´s set for every uxElement seperatly. There are three mod
           this.d = d;
           this.renderShape = () => {
 
+            if (this.shadow) {
+              this.shadowRender();
+            }
+
             if (this.uxNoStrokeState === false) {
               stroke(this.uxStrokeColor);
             } else {
@@ -286,9 +340,16 @@ The input function get´s set for every uxElement seperatly. There are three mod
               noFill()
             }
 
+            if (this.uxEllipseModeState === 'corner') {
+              ellipseMode(CORNER);
+            } else if (this.uxEllipseModeState === 'center') {
+              ellipseMode(CENTER);
+            }
+
             circle(this.x, this.y, this.d);
 
           }
+
           this.inputObject = (input) => {
 
             if (checkCircleHover(this.x, this.y, this.d, mouseX, mouseY) && input === this.kindOfInput) {
@@ -307,6 +368,10 @@ The input function get´s set for every uxElement seperatly. There are three mod
           this.h = e;
           this.renderShape = () => {
 
+            if (this.shadow) {
+              this.shadowRender();
+            }
+
             if (this.uxNoStrokeState === false) {
               stroke(this.uxStrokeColor);
             } else {
@@ -320,9 +385,16 @@ The input function get´s set for every uxElement seperatly. There are three mod
               noFill()
             }
 
+            if (this.uxEllipseModeState === 'corner') {
+              ellipseMode(CORNER);
+            } else if (this.uxEllipseModeState === 'center') {
+              ellipseMode(CENTER);
+            }
+
             ellipse(this.x, this.y, this.w, this.h);
 
           }
+
           this.inputObject = (input) => {
 
             if (checkEllipseHover(this.x, this.y, this.w, this.h, mouseX, mouseY) && input === this.kindOfInput) {
@@ -346,6 +418,7 @@ The input function get´s set for every uxElement seperatly. There are three mod
             this.h = e;
 
           }
+
           this.inputObject = (input) => {
 
             if (checkRectHover(this.x, this.y, this.w, this.h, mouseX, mouseY) && input === this.kindOfInput) {
@@ -372,6 +445,301 @@ The input function get´s set for every uxElement seperatly. There are three mod
       this.callback = callback;
     }
 
+    //This method adds a shadow to the object
+
+    uxShadow(offX, offY, wBlur, color) {
+      this.shadow = true;
+
+      this.offX = offX;
+      this.offY = offY;
+      this.wBlur = wBlur;
+      this.shadowColor = color;
+
+      if (this.wBlur > 50) {
+        console.log('Blur-Max for shadows is 50')
+        return;
+      }
+
+      switch (this.shape) {
+
+        case 'rect':
+
+          this.shadowRender = () => {
+
+            noStroke();
+            fill(this.shadowColor);
+            rectMode(CORNER);
+
+            if (this.uxRectModeState === 'center') {
+              rect(this.x + this.wBlur + this.offX - this.w / 2,
+                this.y + this.wBlur + this.offY - this.h / 2,
+                this.w - this.wBlur * 2,
+                this.h - this.wBlur * 2,
+                this.cor
+              );
+            } else {
+              rect(this.x + this.wBlur + this.offX,
+                this.y + this.wBlur + this.offY,
+                this.w - this.wBlur * 2,
+                this.h - this.wBlur * 2,
+                this.cor
+              );
+            }
+
+
+            const off = Math.round(this.wBlur * 1.2);
+
+            for (let i = 0; i < off; i++) {
+
+              noFill();
+
+              strokeWeight(3);
+
+              stroke(this.shadowColor, map(i, 0, off, 255, 0));
+
+              if (this.uxRectModeState === 'center') {
+
+                rect(this.x + this.offX + this.wBlur - i - this.w / 2,
+                  this.y + this.offY + this.wBlur - i - this.h / 2,
+                  this.w - this.wBlur * 2 + i * 2 - 1,
+                  this.h - this.wBlur * 2 + i * 2 - 1,
+                  this.cor
+                );
+
+              } else {
+
+                rect(this.x + this.offX + this.wBlur - i,
+                  this.y + this.offY + this.wBlur - i,
+                  this.w - this.wBlur * 2 + i * 2 - 1,
+                  this.h - this.wBlur * 2 + i * 2 - 1,
+                  this.cor
+                );
+
+              }
+            }
+          }
+
+          break;
+
+        case 'square':
+
+          this.shadowRender = () => {
+
+            noStroke();
+            fill(this.shadowColor);
+            rectMode(CORNER);
+
+            if (this.uxRectModeState === 'center') {
+              square(this.x + this.wBlur + this.offX - this.s / 2,
+                this.y + this.wBlur + this.offY - this.s / 2,
+                this.s - this.wBlur * 2,
+                this.cor
+              );
+            } else {
+              square(this.x + this.wBlur + this.offX,
+                this.y + this.wBlur + this.offY,
+                this.s - this.wBlur * 2,
+                this.cor
+              );
+            }
+
+
+
+            const off = Math.round(this.wBlur * 1.2);
+
+            for (let i = 0; i < off; i++) {
+
+              noFill();
+
+              strokeWeight(3);
+
+              stroke(this.shadowColor, map(i, 0, off, 255, 0));
+
+              if (this.uxRectModeState === 'center') {
+
+                square(this.x + this.offX + this.wBlur - i - this.s / 2,
+                  this.y + this.offY + this.wBlur - i - this.s / 2,
+                  this.s - this.wBlur * 2 + i * 2 - 1,
+                  this.cor
+                );
+
+
+              } else {
+
+                square(this.x + this.offX + this.wBlur - i,
+                  this.y + this.offY + this.wBlur - i,
+                  this.s - this.wBlur * 2 + i * 2 - 1,
+                  this.cor
+                );
+
+              }
+            }
+          }
+
+          break;
+
+        case 'triangle':
+
+          this.shadowRender = () => {
+
+            noStroke();
+            fill(this.shadowColor);
+
+            let cX = (this.x1 + this.x2 + this.x3) / 3;
+            let cY = (this.y1 + this.y2 + this.y3) / 3;
+
+            let xi1 = map(this.wBlur, 0, 50, this.x1, cX);
+            let yi1 = map(this.wBlur, 0, 50, this.y1, cY);
+
+            let xi2 = map(this.wBlur, 0, 50, this.x2, cX);
+            let yi2 = map(this.wBlur, 0, 50, this.y2, cY);
+
+            let xi3 = map(this.wBlur, 0, 50, this.x3, cX);
+            let yi3 = map(this.wBlur, 0, 50, this.y3, cY);
+
+            triangle(
+              xi1 + this.offX,
+              yi1 + this.offY,
+              xi2 + this.offX,
+              yi2 + this.offY,
+              xi3 + this.offX,
+              yi3 + this.offY
+            );
+
+            const off = Math.round(this.wBlur * 1.2);
+
+            for (let i = 0; i < off; i++) {
+
+              noFill();
+
+              strokeWeight(3);
+
+              stroke(this.shadowColor, map(i, 0, off, 255, 0));
+
+              triangle(
+                map(this.wBlur - i, 50, 0, cX, this.x1) + this.offX,
+                map(this.wBlur - i, 50, 0, cY, this.y1) + this.offY,
+                map(this.wBlur - i, 50, 0, cX, this.x2) + this.offX,
+                map(this.wBlur - i, 50, 0, cY, this.y2) + this.offY,
+                map(this.wBlur - i, 50, 0, cX, this.x3) + this.offX,
+                map(this.wBlur - i, 50, 0, cY, this.y3) + this.offY
+              );
+            }
+          }
+
+          break;
+
+        case 'ellipse':
+
+          this.shadowRender = () => {
+
+            noStroke();
+            fill(this.shadowColor);
+
+            ellipseMode(CENTER);
+
+            if (this.uxEllipseModeState === 'corner') {
+              ellipse(this.x + this.offX + this.w / 2,
+                this.y + this.offY + this.h / 2,
+                this.w - this.wBlur * 2,
+                this.h - this.wBlur * 2
+              );
+
+            } else {
+              ellipse(this.x + this.offX,
+                this.y + this.offY,
+                this.w - this.wBlur * 2,
+                this.h - this.wBlur * 2
+              );
+            }
+
+
+
+            noFill();
+            const off = Math.round(this.wBlur * 1.2);
+
+            for (let i = 0; i < off; i++) {
+
+              noFill();
+
+              strokeWeight(3);
+
+              stroke(this.shadowColor, map(i, 0, off, 255, 0));
+
+
+
+              if (this.uxEllipseModeState === 'corner') {
+                ellipse(this.x + this.offX + this.w / 2,
+                  this.y + this.offY + this.h / 2,
+                  this.w - this.wBlur * 2 + i * 2 - 1,
+                  this.h - this.wBlur * 2 + i * 2 - 1
+                );
+
+              } else {
+                ellipse(this.x + this.offX,
+                  this.y + this.offY,
+                  this.w - this.wBlur * 2 + i * 2 - 1,
+                  this.h - this.wBlur * 2 + i * 2 - 1
+                );
+              }
+            }
+          }
+
+          break;
+
+        case 'circle':
+
+          this.shadowRender = () => {
+
+            noStroke();
+            fill(this.shadowColor);
+
+            ellipseMode(CENTER);
+
+            if (this.uxEllipseModeState === 'corner') {
+              ellipse(this.x + this.offX + this.d / 2,
+                this.y + this.offY + this.d / 2,
+                this.d - this.wBlur * 2
+              );
+
+            } else {
+              ellipse(this.x + this.offX,
+                this.y + this.offY,
+                this.d - this.wBlur * 2
+              );
+            }
+
+            noFill();
+            const off = Math.round(this.wBlur * 1.2);
+
+            for (let i = 0; i < off; i++) {
+
+              noFill();
+
+              strokeWeight(3);
+
+              stroke(this.shadowColor, map(i, 0, off, 255, 0));
+
+              if (this.uxEllipseModeState === 'corner') {
+                ellipse(this.x + this.offX + this.d / 2,
+                  this.y + this.offY + this.d / 2,
+                  this.d - this.wBlur * 2 + i * 2 - 1
+                );
+
+              } else {
+                ellipse(this.x + this.offX,
+                  this.y + this.offY,
+                  this.d - this.wBlur * 2 + i * 2 - 1
+                );
+              }
+            }
+          }
+
+          break;
+
+      }
+
+    }
 
 
     //This function can be called by the user in draw() (removes uxElement from render-Array and draws it in place)
