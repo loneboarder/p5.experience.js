@@ -25,6 +25,10 @@ To every of those shapes, an event listener can be assigned. There are three typ
 * Mouse clicked ('click')
 * Mouse is hovering ('hover')
 
+**NEW in vers. 1.4:** 
+
+You can now add shadows to every possible uxShape and just modify it, like in for example Adobe XD or other drawing software!
+
 ## Getting started
 To build your first web-application with p5.experience.js you just need to add the uxShape that you want to your setup function:
 
@@ -90,6 +94,9 @@ The reference contains the following functions & methods:
 *Event Handling*
 * .uxEvent()
 * .uxRender()
+
+*Shape Drawing Functions*
+* .uxShadow()
 
 ### *Shapes*
 
@@ -190,3 +197,13 @@ This function is for uxShapes only.
 ```
 
 This method disables the automatic drawing of the chosen element and draws it where .uxRender() gets called. You can call this method anywhere in draw to display the uxShape exactly where you want it.
+
+### *Shape Drawing Functions*
+
+### .uxShadow()
+
+```javascript
+.uxShadow(XOffset, YOffset, BlurIntensity, Color)
+```
+
+This method sets a shadow behind the chosen uxShape. You can offset the shadow on the x- and y-axis. The BlurIntensity-parameter blurs the shadow. The max-value for BlurIntensity is 50. The Color-parameter is optional (default is 150 grey-scale).
