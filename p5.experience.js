@@ -447,7 +447,7 @@ More Infos / Reference / Tutorials & ReadMe: github.com/loneboarder/p5.experienc
 
     //This method adds a shadow to the object
 
-    uxShadow(offX, offY, wBlur, color) {
+    uxShadow(offX, offY, wBlur, color = 150) {
       this.shadow = true;
 
       this.offX = offX;
