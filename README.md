@@ -84,19 +84,19 @@ The reference contains the following functions & methods:
 * uxCircle()
 * uxEllipse()
 
-*Shape Manipulation*
+*Shape Manipulation Functions*
 * uxFillColor()
 * uxnoFill()
 * uxStroke()
-* uxStrokeWeight()
 * uxNoStroke()
+* uxStrokeWeight()
+
+*Shape Manipulation Methods*
+* .uxShadow()
 
 *Event Handling*
 * .uxEvent()
 * .uxRender()
-
-*Shape Drawing Functions*
-* .uxShadow()
 
 ### *Shapes*
 
@@ -133,7 +133,7 @@ uxCircle(x, y, d)
 uxCircle(x, y, w, h)
 ```
 
-### *Shape Manipulation*
+### *Shape Manipulation Functions*
 
 ### uxFill()
 ```javascript
@@ -175,6 +175,29 @@ uxStrokeWeight(weight)
 This function works like the p5.js strokeWeight-function. For more information see [p5 strokeWeight reference](https://p5js.org/reference/#/p5/strokeweight)
 This function can only be called in setup() and is for uxShapes only.  
 
+### uxRectMode()
+```javascript
+uxRectMode('corner')
+```
+This functions works like p5.js rectMode-function, except you need to write "corner" instead of CORNER as parameter. This function only works in setup() and ist for uxShapes only. You can only use "corner" and "center" as parameters.
+
+### uxEllipseMode()
+```javascript
+uxEllipseMode('corner')
+```
+This functions works like p5.js ellipseMode-function, except you need to write "corner" instead of CORNER as parameter. This function only works in setup() and ist for uxShapes only. You can only use "corner" and "center" as parameters.
+
+### *Shape Manipulation Methods*
+
+### .uxShadow()
+
+```javascript
+.uxShadow(XOffset, YOffset, BlurIntensity, Color)
+```
+
+This method sets a shadow behind the chosen uxShape. You can offset the shadow on the x- and y-axis. The BlurIntensity-parameter blurs the shadow. The max-value for BlurIntensity is 50. The Color-parameter is optional (default is 150 grey-scale).
+
+
 ### *Event Handling*
 
 ### .uxEvent()
@@ -197,13 +220,3 @@ This function is for uxShapes only.
 ```
 
 This method disables the automatic drawing of the chosen element and draws it where .uxRender() gets called. You can call this method anywhere in draw to display the uxShape exactly where you want it.
-
-### *Shape Drawing Functions*
-
-### .uxShadow()
-
-```javascript
-.uxShadow(XOffset, YOffset, BlurIntensity, Color)
-```
-
-This method sets a shadow behind the chosen uxShape. You can offset the shadow on the x- and y-axis. The BlurIntensity-parameter blurs the shadow. The max-value for BlurIntensity is 50. The Color-parameter is optional (default is 150 grey-scale).
